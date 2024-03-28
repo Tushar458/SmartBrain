@@ -41,39 +41,39 @@ const User = mongoose.model('User', userSchema);
 
 // // Handle register endpoint
 // // Handle register endpoint
-// app.post('/register', (req, res) => {
-//     // Extract data from request body
-//     const { name, email, password } = req.body;
+app.post('/register', (req, res) => {
+    // Extract data from request body
+    const { name, email, password } = req.body;
 
-//     // Hash the password
-//     bcrypt.genSalt(10, (err, salt) => {
-//         bcrypt.hash(password, salt, (err, hash) => {
-//             if (err) {
-//                 console.error('Error hashing password:', err);
-//                 return res.status(500).json({ error: 'Error hashing password' });
-//             }
+    // Hash the password
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(password, salt, (err, hash) => {
+            if (err) {
+                console.error('Error hashing password:', err);
+                return res.status(500).json({ error: 'Error hashing password' });
+            }
 
-//             // Create a new user document with hashed password
-//             const newUser = new User({
-//                 name: name,
-//                 email: email,
-//                 password: hash, // Store hashed password
-//             });
+            // Create a new user document with hashed password
+            const newUser = new User({
+                name: name,
+                email: email,
+                password: hash, // Store hashed password
+            });
 
-//             // Save the user to the database
-//             newUser.save()
-//                 .then((user) => {
-//                     // Respond with the newly created user object
-//                     res.status(200).json(user);
-//                 })
-//                 .catch((error) => {
-//                     // Handle errors
-//                     console.error('Error registering user:', error);
-//                     res.status(500).json({ error: 'Error registering user' });
-//                 });
-//         });
-//     });
-// });
+            // Save the user to the database
+            newUser.save()
+                .then((user) => {
+                    // Respond with the newly created user object
+                    res.status(200).json(user);
+                })
+                .catch((error) => {
+                    // Handle errors
+                    console.error('Error registering user:', error);
+                    res.status(500).json({ error: 'Error registering user' });
+                });
+        });
+    });
+});
 
 // //endpoint for signin
 // Handle signin endpoint
