@@ -76,37 +76,37 @@ const User = mongoose.model('User', userSchema);
 // });
 
 // //endpoint for signin
-// // Handle signin endpoint
-// app.post('/signin', (req, res) => {
-//     const { email, password } = req.body;
+// Handle signin endpoint
+app.post('/signin', (req, res) => {
+    const { email, password } = req.body;
     
-//     // Find user by email
-//     User.findOne({ email: email })
-//     .then((user) => {
-//       if (!user) {
-//         // If user is not found, send an error response
-//         console.log("user not found");
-//         return res.status(400).json({ success: false, error: 'User not found' });
-//       }
+    // Find user by email
+    User.findOne({ email: email })
+    .then((user) => {
+      if (!user) {
+        // If user is not found, send an error response
+        console.log("user not found");
+        return res.status(400).json({ success: false, error: 'User not found' });
+      }
   
-//       // Compare the provided password with the hashed password stored in the database
-//       bcrypt.compare(password, user.password, (err, result) => {
-//         if (result) {
-//           // If password matches, send user data with success flag as response
-//           res.json({ success: true, user: user });
-//         } else {
-//           // If password does not match, send an error response
-//           res.status(400).json({ success: false, error: 'Invalid credentials' });
-//           console.log("invalid credentials");
-//         }
-//       });
-//     })
-//     .catch((error) => {
-//       // Handle errors
-//       console.error('Error signing in:', error);
-//       res.status(500).json({ success: false, error: 'Error signing in' });
-//     });
-//   });
+      // Compare the provided password with the hashed password stored in the database
+      bcrypt.compare(password, user.password, (err, result) => {
+        if (result) {
+          // If password matches, send user data with success flag as response
+          res.json({ success: true, user: user });
+        } else {
+          // If password does not match, send an error response
+          res.status(400).json({ success: false, error: 'Invalid credentials' });
+          console.log("invalid credentials");
+        }
+      });
+    })
+    .catch((error) => {
+      // Handle errors
+      console.error('Error signing in:', error);
+      res.status(500).json({ success: false, error: 'Error signing in' });
+    });
+  });
   
 app.put('/image', (req, res) => {
     const { name } = req.body;
