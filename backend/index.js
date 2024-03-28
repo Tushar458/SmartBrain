@@ -9,13 +9,7 @@ const router = express.Router();
 // Initialize Express app
 const app = express();
 // Enable CORS middleware
-app.use(cors(
-  {
-    origin: {"https://smart-brain-api-eight.vercel.app"},
-    methods: {"POST", "GET"},
-    credentials: true
-  }
-));
+app.use(cors());
 //app.use(express.json({ limit: "25mb" }));
 app.get("/",(req,res)=>
 {
