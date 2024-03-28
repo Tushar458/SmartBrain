@@ -131,16 +131,16 @@ const User = mongoose.model('User', userSchema);
 //         });
 // });
 // // Endpoint to fetch leaderboard
-// app.get('/leaderboard', async (req, res) => {
-//   try {
-//     // Fetch users from the database and sort them by entries in descending order
-//     const leaderboard = await User.find({}, 'name entries').sort({ entries: -1 });
-//     res.json(leaderboard);
-//   } catch (error) {
-//     console.error('Error fetching leaderboard:', error);
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// });
+app.get('/leaderboard', async (req, res) => {
+  try {
+    // Fetch users from the database and sort them by entries in descending order
+    const leaderboard = await User.find({}, 'name entries').sort({ entries: -1 });
+    res.json(leaderboard);
+  } catch (error) {
+    console.error('Error fetching leaderboard:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 // Start the server
 const PORT = 3001;
