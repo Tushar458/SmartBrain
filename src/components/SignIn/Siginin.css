@@ -1,0 +1,27 @@
+#signin-form {
+  transform: translate(0, 15%);
+  width: fit-content;
+}
+
+input {
+  background-color: white;
+  color: black;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+#signin-form #submit-form,
+.demo-btn {
+  background: #bdbdbd;
+  background-image: linear-gradient(298deg, #001fffba, #0250ff4a);
+  transition: background 0.75s ease;
+}
+
+#submit-form:hover,
+#submit-form:focus,
+.demo-btn:hover {
+  background: #001fffba;
+  background: linear-gradient(298deg, #bdbdbd, #0250ff4a) !important;
+}

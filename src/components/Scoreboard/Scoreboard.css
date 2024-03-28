@@ -1,0 +1,27 @@
+
+.container {
+    display: flex;
+    flex-direction: column; /* Display children in a column */
+    align-items: center; /* Center items horizontally */
+  }
+  
+  .title {
+    margin-bottom: 20px; /* Add margin below the title */
+  }
+  
+  table {
+    width: 20%;
+    max-width: 400px;
+    border-collapse: collapse;
+    background-color: navy;
+    color: white;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
