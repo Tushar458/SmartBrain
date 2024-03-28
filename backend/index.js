@@ -14,7 +14,7 @@ app.get("/",(req,res)=>
 {
   res.json("Hello");
 })
-Define a schema and model for your users collection
+//Define a schema and model for your users collection
 const userSchema = new mongoose.Schema({
     name: String,
     email: String,
