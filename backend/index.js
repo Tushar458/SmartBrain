@@ -108,28 +108,28 @@ const User = mongoose.model('User', userSchema);
 //     });
 //   });
   
-// app.put('/image', (req, res) => {
-//     const { name } = req.body;
-//     console.log("User's name:", name); // Log the user's name
-//     // Find user by name and update entries field
-//     User.findOneAndUpdate({ name: name }, { $inc: { entries: 1 } }, { new: true })
-//     .then(user => {
-//         if (!user) {
-//             console.log("User not found");
-//             return res.status(404).json({ error: 'User not found' });
-//         }
-//         const entryCount = parseInt(user.entries); // Convert to number if necessary
-//         if (isNaN(entryCount)) {
-//             console.error('Invalid entry count:', user.entries);
-//             return res.status(500).json({ error: 'Invalid entry count' });
-//         }
-//         res.json(entryCount); // Return updated entry count as a number
-//     })
-//         .catch(err => {
-//             console.error('Error updating user entries:', err);
-//             res.status(500).json({ error: 'Error updating user entries' });
-//         });
-// });
+app.put('/image', (req, res) => {
+    const { name } = req.body;
+    console.log("User's name:", name); // Log the user's name
+    // Find user by name and update entries field
+    User.findOneAndUpdate({ name: name }, { $inc: { entries: 1 } }, { new: true })
+    .then(user => {
+        if (!user) {
+            console.log("User not found");
+            return res.status(404).json({ error: 'User not found' });
+        }
+        const entryCount = parseInt(user.entries); // Convert to number if necessary
+        if (isNaN(entryCount)) {
+            console.error('Invalid entry count:', user.entries);
+            return res.status(500).json({ error: 'Invalid entry count' });
+        }
+        res.json(entryCount); // Return updated entry count as a number
+    })
+        .catch(err => {
+            console.error('Error updating user entries:', err);
+            res.status(500).json({ error: 'Error updating user entries' });
+        });
+});
 // // Endpoint to fetch leaderboard
 app.get('/leaderboard', async (req, res) => {
   try {
