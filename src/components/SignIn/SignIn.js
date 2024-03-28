@@ -22,7 +22,7 @@ class SignIn extends React.Component {
 
   onSubmitSignIn = () => {
     this.setState({ loading: true });
-    fetch("http://localhost:3001/signin", {
+    fetch("https://smart-brain-api-eight.vercel.app/signin", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -69,7 +69,7 @@ class SignIn extends React.Component {
       loading: true,
     });
 
-    fetch("http://localhost:3001/signin", { // Update endpoint URL
+    fetch("https://smart-brain-api-eight.vercel.app/signin", { // Update endpoint URL
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
