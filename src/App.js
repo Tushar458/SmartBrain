@@ -120,7 +120,7 @@ class App extends Component {
         this.displayFaceBox(this.calculateFaceLocation(result))
         if (result) {
           console.log("User's name:", this.state.user.name);
-          fetch("http://localhost:3001/image", {
+          fetch("https://smart-brain-api-eight.vercel.app/image", {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
