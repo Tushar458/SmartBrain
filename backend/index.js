@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 app.get("/",(req,res)=>
 {
-  res.json("Hello");
+  res.json("Wait what ?");
 })
 //Define a schema and model for your users collection
 const userSchema = new mongoose.Schema({
