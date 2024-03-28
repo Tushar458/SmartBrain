@@ -14,30 +14,30 @@ app.get("/",(req,res)=>
 {
   res.json("Hello");
 })
-// Define a schema and model for your users collection
-// const userSchema = new mongoose.Schema({
-//     name: String,
-//     email: String,
-//     password: String,
-//     entries: { type: Number, default: 0 }, // Add the entries field with default value 0
-//   });
+Define a schema and model for your users collection
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    password: String,
+    entries: { type: Number, default: 0 }, // Add the entries field with default value 0
+  });
   
 
-// // Connect to MongoDB Atlas using the connection string
-// const connectionString = 'mongodb+srv://tusharbhatia599:123654@smartbrainloginsignup.1ofdbsd.mongodb.net/test';
-// mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => {
-//     console.log('Connected to MongoDB Atlas');
-//   })
-//   .catch((error) => {
-//     console.error('Error connecting to MongoDB Atlas:', error);
-//   });
+// Connect to MongoDB Atlas using the connection string
+const connectionString = 'mongodb+srv://tusharbhatia599:123654@smartbrainloginsignup.1ofdbsd.mongodb.net/test';
+mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB Atlas');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB Atlas:', error);
+  });
 
-// // Use bodyParser middleware to parse JSON requests
-// app.use(bodyParser.json());
+// Use bodyParser middleware to parse JSON requests
+app.use(bodyParser.json());
 
 
-// const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 // // Handle register endpoint
 // // Handle register endpoint
