@@ -10,7 +10,7 @@ const Scoreboard = () => {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await fetch('http://localhost:3001/leaderboard');
+      const response = await fetch('https://smart-brain-api-eight.vercel.app/leaderboard');
       if (!response.ok) {
         throw new Error('Failed to fetch leaderboard');
       }
