@@ -12,11 +12,11 @@ const app = express();
 app.use(cors(
   {
     origin: {"https://smart-brain-api-eight.vercel.app"},
-    methods: {"POST", "GET", "DELETE", "PUT"},
+    methods: {"POST", "GET"},
     credentials: true
   }
 ));
-app.use(express.json({ limit: "25mb" }));
+//app.use(express.json({ limit: "25mb" }));
 app.get("/",(req,res)=>
 {
   res.json("Wait what ?");
